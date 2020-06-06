@@ -1,7 +1,7 @@
 clear,clc
 close all;
 
-%% Finite Difference Method (FDM) %%
+%% Numerical Integration %%
 
 % Summary: This code determines de integral of the function y = f(t) using rectangle, trapezoidal and Simpson method
 % Objective: Determine the integral of the function f(t) in the interval [a , b], f(t) = F'(t)
