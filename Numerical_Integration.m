@@ -5,7 +5,7 @@ close all;
 
 % Summary: This code determines de integral of the function y = f(t) using rectangle, trapezoidal and Simpson method
 % Objective: Determine the integral of the function f(t) in the interval [a , b], f(t) = F'(t)
-% How to use : Fill F(t) in item 1.1, fill M, C, K, x0 and v0 in item 1.2, then fill t0, tf and dt in item 1.3. Then run
+% How to use : Fill f(t) in item 1.1, fill a and b in item 1.2, then fill n item 1.3. Then run
 
 %% 1) Inputs %% 
 
