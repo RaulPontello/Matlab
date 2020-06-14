@@ -3,9 +3,17 @@ close all;
 
 %% Finite Difference Method (FDM) %%
 
-% Summary: This code solves second-order linear differential equations for damped vibrations of a single degree of freedom system using the Finite Difference Method
+% Latest update: 14/06/2020
+
+% Summary: This code solves second-order linear differential equations for damped vibrations of 
+% a single degree of freedom system consisting of one mass using the Finite Difference Method
 % Objective: Determine the solution x(t) for the equation M * x''(t) + C * x'(t) + K * x(t) = F(t)
-% How to use : Fill F(t) in item 1.1, fill M, C, K, x0 and v0 in item 1.2, then fill t0, tf and dt in item 1.3. Then run
+% How to use : 
+%   1) Fill F(t) in item 1.1; 
+%   2) Fill M, C and K in item 1.2;
+%   3) Fill x0 and v0 in item 1.3; 
+%   4) Fill t0, tf and dt in item 1.4; 
+%   5) Then run
 
 %-------------------------------------------------------------------------%
 % Units used %
@@ -18,7 +26,7 @@ close all;
 % Time (t) = s
 % Displacement (x) = m
 % Velocity (v) = m/s
-% Acceleration (a) = m/s²
+% Acceleration (a) = m/sÂ²
 % Natural frequency (Wn) = rad/s
 % Frequency (f) = Hz
 % Period (T) = s
@@ -32,27 +40,27 @@ close all;
 F = @(t)  0 ;   % F = f(t)
 
 %-------------------------------------------------------------------------%
-% 1.2) Definition of the (M, C, K) parameters and initial conditions %
+% 1.2) Definition of the (M, C, K) parameters %
 %-------------------------------------------------------------------------%
 
-M = 10 ; C = 35 ; K = 5;   % M = mass , C = damping coefficient , K = spring coefficient
+M = 5 ; C = 1 ; K = 3;   % M = mass , C = damping coefficient , K = spring coefficient
+
+%-------------------------------------------------------------------------%
+% 1.3) Definition of the initial conditions %
+%-------------------------------------------------------------------------%
+
 x0 = 15 ; v0 = 0;   % initial conditions for displacement (x0) and velocity (v0)
 
 %-------------------------------------------------------------------------%
-% 1.3) Definition of the time mesh t = (t0, t1,..., tn) %
+% 1.4) Definition of the time mesh t = (t0, t1,..., tn) %
 %-------------------------------------------------------------------------%
 
 % n = number of divisions of (t0 , tf) , dt = size of each division
 % dt = (tf - t0) / n
 
-t0 = 0 ; tf = 100 ; dt = 0.01; 
+t0 = 0 ; tf = 100 ; dt = 0.1; 
 n = (tf - t0) / dt;
-t = zeros(n , 1);   % t is the time vector
-t(1 , 1) = t0;
-
-for i = 2 : n
-    t(i , 1) = t(1 , 1) + (i - 1) * dt;
-end
+t = t0 : dt : tf;   % t is the time vector
 
 %% 2) Outputs %% 
 
@@ -109,7 +117,7 @@ hold on
 plot(t, a, 'Color', 'g', 'LineWidth', 2.5)
 title('Results for x(t), v(t) and a(t)')
 xlabel('Time (s)');
-ylabel('[x(t)] = m,   [v(t)] = m/s,   [a(t)] = m/s²');
+ylabel('[x(t)] = m,   [v(t)] = m/s,   [a(t)] = m/sÂ²');
 legend('x(t)', 'v(t)', 'a(t)')
 
 
